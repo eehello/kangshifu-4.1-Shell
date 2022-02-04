@@ -1,5 +1,5 @@
-# kangml4.0
-康师傅4.0流控Shell纪念版脚本<br>
+# kangml4.1
+康师傅4.1流控Shell纪念版脚本<br>
 
 BUG未知<br>
 PHP均未解密<br>

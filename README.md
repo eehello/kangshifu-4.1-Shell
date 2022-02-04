@@ -4,11 +4,7 @@
 [PHP源码在这里](https://github.com/k-skye/OpenVpn-Flow-Control-System)
 
 BUG未知<br>
-PHP均未解密<br>
-建议在测试环境<br>
-请勿在生产环境执行<br>
-发生一切问题由你自己负责，本人不参与任何争辩和争论<br>
-尤其禁止在海外服务器进行搭建测试，本脚本仅适用于学习与研究等个人用途,请勿用于任何违法国家法律的活动！<br>
+本脚本仅适用于学习与研究等个人用途,请勿用于任何违法国家法律的活动！<br>
 <br>
 一键脚本：<br>
 `yum -y install wget;wget -N --no-check-certificate "https://raw.githubusercontent.com/k-skye/kangml4.0/master/kangml.sh";chmod 777 kangml.sh;./kangml.sh`

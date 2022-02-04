@@ -1,6 +1,3 @@
-# 弱智康4.0 Shell脚本
-# By 凌一
-# 精仿一比一 谁用谁牛逼
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 #######
@@ -29,19 +26,12 @@ echo "
 ==================================================================
 		Openvpn流量控制系统 | 一键搭建脚本
                  Powered by kangml.com 2015-2021
-				 
-                  Crack By yyrh.me&lyiqk.cn 2015-2021
 
      温馨提示：
-         做最好(lā jī)的服务,做最好(lā jī)的搭建程序。
-         授权码绑定IP后可在同一IP下无限使用！(这么麻烦干啥，我帮你破了，顺便帮你修复了bug，不用谢我。)
+         做最好的服务,做最好的搭建程序。
          禁止使用Centos7.x 64位以外的系统版本搭建！
          本脚本仅适用于学习与研究等个人用途,请勿用于任何违法国家法律的活动！
-         谢谢各位老康粉(nǎo cán fěn)的支持！
-                 by 康师傅(ruò zhì kāng) 2021-05-11
-				 
-                  Crack By 烟雨如花 2022-01-10
-                  凌一在此提前祝大家新年快乐！
+         谢谢各位老康粉的支持！
 ==================================================================
 
 回车Enter继续~
@@ -56,7 +46,7 @@ Install_Mean()
 clear
 echo "
 ------------------------
-1 - 安装康师傅(ruò zhì kāng)流控 + APP
+1 - 安装康师傅流控 + APP
 2 - 在线更新   >> （免重装一键更新流控程序）
 3 - 流控负载   >> （集群服务器 负载均衡 账号共享）
 4 - 制作代理APP    >> (生成代理APP)
@@ -95,14 +85,12 @@ Check_OS()
 {
 if [ -f "/var/www/html" ];then
 echo "
-康师傅(ruò zhì kāng)AI智能(zhàng)系统：检测到您已安装流控，如需要重新安装流控，请先给服务器重装系统！
-凌一：咋地了老铁，是不是对我写的弱智康脚本情有独钟老想搭建啊，那多搭建几台吧，这可比官方的好使~~~
+康师傅AI智能系统：检测到您已安装流控，如需要重新安装流控，请先给服务器重装系统！
 "
 fi
 if [ ! -f "/root/bin/ps" ];then
 echo "
 【系统错误】可能是服务器环境问题导致～请联系客服！结束搭建。
-凌一：没事别搞事啊卧槽，你是内鬼吗，有内鬼，终止交易！
 "
 fi
 Install_Auth
@@ -112,11 +100,11 @@ Install_Update()
 {
 clear
 cd /var/www/html/
-wget -q http://kangmloss.oss-cn-shenzhen.aliyuncs.com/centos/kangml-update.zip
+wget -q 下崽源/centos/kangml-update.zip
 unzip -o kangml-update.zip >/dev/null 2>&1
 chmod 777 -R ./ >/dev/null 2>&1
 rm -rf kangml-update.zip >/dev/null 2>&1
-echo "弱智康提示您：已经更新完毕！"
+echo "已经更新完毕！"
 }
 
 Install_Fuzai()
@@ -131,33 +119,6 @@ wget -q 下崽源/kangapp.sh
 
 Install_Auth()
 {
-echo "
-【验证授权】
-温馨提示：为了您的服务器安全，请勿(kuài)非法破解授权。
-如需安装请购(wù)买正版密钥：pay.pykky.com
-脚本授权一次，同一IP永久使用，卡密请保管好。
-(凌一:我大哥周某教导我，买是不可能买的，这辈子都不可能买的，只能白嫖这个样子，破解一时爽，一直破解一直爽。)
-"
-echo
-echo -n "请输入流控搭建授权码(yyrh.me):"
-read PASSWD
-sleep 1
-echo "正在加载数据...请稍候..."
-if [ "$PASSWD" = 'yyrh.me' ]
-then
-Auth_Yes
-fi
-echo "
-【错误】授权码不正确！请检查一下是不是复制错了？结束搭建。
-凌一:有内鬼？你TM不对劲！一看就不是自己人，卧槽嘞！
-"
-exit;0
-}
-
-Auth_Yes()
-{
-echo "【授权成功】谢谢您，回车键继续搭建！"
-read
 Close_SELinux
 }
 
@@ -198,8 +159,7 @@ yum -y install yum-utils >/dev/null 2>&1
 Install_Command
 fi
 if [[ $b == 2 ]];then
-# 没扒他的yum源 凑合用阿里云的吧
-echo "已选择安装源：弱智康"
+echo "已选择安装源：备用"
 mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup >/dev/null 2>&1
 wget -qO /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo >/dev/null 2>&1
 wget -qO /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo >/dev/null 2>&1
@@ -403,8 +363,8 @@ yum -y install pam pam-devel > /dev/null 2>&1
 yum -y install automake pkgconfig gawk tar zip unzip net-tools psmisc gcc pkcs11-helper libxml2 libxml2-devel bzip2 bzip2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel > /dev/null 2>&1
 yum -y install mariadb mariadb-server dnsmasq jre-1.7.0-openjdk crontabs lsof > /dev/null 2>&1
 yum install -y php74 php74-php-devel php74-php-fpm php74-php-mbstring php74-php-memcache php74-php-memcached php74-php-redis php74-php-mysqlnd php74-php-pdo php74-php-bcmath php74-php-xml php74-php-gd php74-php-gmp php74-php-igbinary php74-php-imagick php74-php-mcrypt php74-php-pdo_mysql php74-php-posix php74-php-simplexml php74-php-opcache php74-php-xsl php74-php-xmlwriter php74-php-xmlreader php74-php-swoole php74-php-zip php74-php-phalcon php74-php-yaml php74-php-yar php74-php-yaf php74-php-uuid > /dev/null 2>&1
-rpm -Uvh http://kangmloss.oss-cn-shenzhen.aliyuncs.com/centos/liblz4-1.8.1.2-alt1.x86_64.rpm --force --nodeps > /dev/null 2>&1
-rpm -Uvh http://kangmloss.oss-cn-shenzhen.aliyuncs.com/centos/openvpn-2.4.3-1.el7.x86_64.rpm --force --nodeps > /dev/null 2>&1
+rpm -Uvh 下崽源/centos/liblz4-1.8.1.2-alt1.x86_64.rpm --force --nodeps > /dev/null 2>&1
+rpm -Uvh 下崽源/centos/openvpn-2.4.3-1.el7.x86_64.rpm --force --nodeps > /dev/null 2>&1
 systemctl start mariadb.service > /dev/null 2>&1
 mysqladmin -uroot password ''$SqlPwd'' > /dev/null 2>&1
 mysql -uroot -p''$SqlPwd'' -e 'create database vpndata;' > /dev/null 2>&1
@@ -414,16 +374,16 @@ yum makecache > /dev/null 2>&1
 yum install -y nginx > /dev/null 2>&1
 mkdir -p /var/www/html
 rm -rf /etc/nginx/conf.d/default.conf > /dev/null 2>&1
-wget -qO /etc/nginx/conf.d/default.conf http://kangmloss.oss-cn-shenzhen.aliyuncs.com/centos/default.conf > /dev/null 2>&1
+wget -qO /etc/nginx/conf.d/default.conf 下崽源/centos/default.conf > /dev/null 2>&1
 sed -i 's/listen 80/listen 1234/g' /etc/nginx/conf.d/default.conf > /dev/null 2>&1
 systemctl start nginx > /dev/null 2>&1
-wget -q http://kangmloss.oss-cn-shenzhen.aliyuncs.com/centos/ixed.7.4.lin -P /opt/remi/php74/root/usr/lib64/php/modules/ > /dev/null 2>&1
+wget -q 下崽源/centos/ixed.7.4.lin -P /opt/remi/php74/root/usr/lib64/php/modules/ > /dev/null 2>&1
 echo ' extension=ixed.7.4.lin' >> /etc/opt/remi/php74/php.ini
 chmod 777 /var/opt/remi/php74/lib/php/session > /dev/null 2>&1
 ln -s /bin/php74 /bin/php > /dev/null 2>&1
 systemctl start php74-php-fpm > /dev/null 2>&1
 rm -rf /etc/dnsmasq.conf > /dev/null 2>&1
-wget -q http://kangmloss.oss-cn-shenzhen.aliyuncs.com/centos/dnsmasq.conf -P /etc > /dev/null 2>&1
+wget -q 下崽源/centos/dnsmasq.conf -P /etc > /dev/null 2>&1
 chmod 0777 /etc/dnsmasq.conf > /dev/null 2>&1
 echo '#kangml自定义屏蔽host文件 ' >> /etc/kangml_host
 chmod 0777 /etc/kangml_host > /dev/null 2>&1
@@ -439,7 +399,7 @@ Install_OpenVPN()
 echo "【4/7】安装OPENVPN主程序（预计30秒）"
 cd /etc/openvpn > /dev/null 2>&1
 rm -rf /etc/openvpn/client /etc/openvpn/server > /dev/null 2>&1
-wget -q http://kangmloss.oss-cn-shenzhen.aliyuncs.com/centos/openvpn.zip > /dev/null 2>&1
+wget -q 下崽源/centos/openvpn.zip > /dev/null 2>&1
 cd /etc/openvpn > /dev/null 2>&1
 unzip -o openvpn.zip > /dev/null 2>&1
 rm -rf openvpn.zip > /dev/null 2>&1
@@ -453,7 +413,7 @@ Install_RuoZhiKang()
 {
 echo "【5/7】安装康师傅流控（预计30秒）"
 cd
-wget -q http://kangmloss.oss-cn-shenzhen.aliyuncs.com/centos/shvpn > /dev/null 2>&1
+wget -q 下崽源/centos/shvpn > /dev/null 2>&1
 chmod 777 shvpn > /dev/null 2>&1
 ./shvpn 1 > /dev/null 2>&1
 # rm -rf ./shvpn > /dev/null 2>&1
@@ -464,7 +424,7 @@ crontab /tmp/crontab.1200 > /dev/null 2>&1
 systemctl restart crond.service
 mkdir /etc/rate.d/
 chmod -R 0777 /etc/rate.d/ > /dev/null 2>&1
-wget -q http://kangmloss.oss-cn-shenzhen.aliyuncs.com/centos/res.zip > /dev/null 2>&1
+wget -q 下崽源/centos/res.zip > /dev/null 2>&1
 unzip -o res.zip > /dev/null 2>&1
 chmod -R 0777 /root > /dev/null 2>&1
 rm -rf /root/res.zip > /dev/null 2>&1
@@ -472,14 +432,14 @@ mv /root/res/kangml.service /lib/systemd/system/kangml.service > /dev/null 2>&1
 chmod -R 0777 /lib/systemd/system/kangml.service > /dev/null 2>&1
 systemctl enable kangml.service
 cd /bin > /dev/null 2>&1
-wget -q http://kangmloss.oss-cn-shenzhen.aliyuncs.com/centos/bin.zip > /dev/null 2>&1
+wget -q 下崽源/centos/bin.zip > /dev/null 2>&1
 cd /bin > /dev/null 2>&1
 unzip -o bin.zip > /dev/null 2>&1
 rm -rf /bin/bin.zip > /dev/null 2>&1
 chmod -R 0777 /bin > /dev/null 2>&1
 rm -rf /var/www/html > /dev/null 2>&1
 cd /var/www > /dev/null 2>&1
-wget -q http://kangmloss.oss-cn-shenzhen.aliyuncs.com/centos/kangml_web.zip > /dev/null 2>&1
+wget -q 下崽源/centos/kangml_web.zip > /dev/null 2>&1
 unzip -o kangml_web.zip > /dev/null 2>&1
 rm -rf kangml_web.zip > /dev/null 2>&1
 chmod 0777 -R /var/www/html > /dev/null 2>&1
@@ -501,15 +461,15 @@ echo "【6/7】制作APP（预计1-2分钟）"
 rm -rf /APP > /dev/null 2>&1
 mkdir /APP > /dev/null 2>&1
 cd /APP > /dev/null 2>&1
-wget -q http://kangmloss.oss-cn-shenzhen.aliyuncs.com/centos/kangml.apk > /dev/null 2>&1
-wget -q http://kangmloss.oss-cn-shenzhen.aliyuncs.com/centos/apktool.jar > /dev/null 2>&1
+wget -q 下崽源/centos/kangml.apk > /dev/null 2>&1
+wget -q 下崽源/centos/apktool.jar > /dev/null 2>&1
 java -jar apktool.jar d kangml.apk > /dev/null 2>&1
 rm -rf kangml.apk > /dev/null 2>&1
 sed -i 's/Kangml/'$AppName'/g' /APP/kangml/res/values/strings.xml > /dev/null 2>&1
 sed -i 's/118.195.174.185:1234/'$IP:1234'/g' /APP/kangml/res/values/strings.xml > /dev/null 2>&1
 sed -i 's/dailiid/'0'/g' /APP/kangml/res/values/strings.xml > /dev/null 2>&1
 java -jar apktool.jar b kangml > /dev/null 2>&1
-wget -q http://kangmloss.oss-cn-shenzhen.aliyuncs.com/centos/signer.zip > /dev/null 2>&1
+wget -q 下崽源/centos/signer.zip > /dev/null 2>&1
 unzip -o signer.zip > /dev/null 2>&1
 mv /APP/kangml/dist/kangml.apk /APP/kangml.apk > /dev/null 2>&1
 java -jar signapk.jar testkey.x509.pem testkey.pk8 /APP/kangml.apk /APP/kangml_sign.apk > /dev/null 2>&1
@@ -572,8 +532,7 @@ cat /home/messages.txt
 
 Install_Last()
 {
-echo "恭喜您，搭建完成！By：kangml.com 破解By：lyiqk.cn&yyrh.me
-搭建问题可加入官方交流群问我，后期老康计划搞一些项目想跟大家一起做，可关注微信公众号：程序员老康
+echo "恭喜您，搭建完成！
 
 
 输入回车结束搭建，并重启VPN："
@@ -583,7 +542,7 @@ shvpn 3 > /dev/null 2>&1
 shvpn 4 > /dev/null 2>&1
 shvpn 3
 sed -i "s/FasAUTH.bin/kangml_auth.bin/g" /var/www/html/''$Web''/admin.php > /dev/null 2>&1
-echo "感谢使用康师傅(ruò zhì kāng)一键搭建OpenVpn流控脚本~"
+echo "感谢使用康师傅一键搭建OpenVpn流控脚本~"
 exit;0
 }
 

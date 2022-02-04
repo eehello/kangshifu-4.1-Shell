@@ -1,5 +1,7 @@
 # kangml4.1
-康师傅流控4.1纪念版脚本源码<br>
+康师傅流控4.1纪念版Shell脚本源码<br>
+
+[PHP源码在这里](https://github.com/k-skye/OpenVpn-Flow-Control-System)
 
 BUG未知<br>
 PHP均未解密<br>

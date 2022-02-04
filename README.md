@@ -9,4 +9,5 @@ BUG未知<br>
 一键脚本：<br>
 `yum -y install wget;wget -N --no-check-certificate "https://raw.githubusercontent.com/k-skye/kangml4.0/master/kangml.sh";chmod 777 kangml.sh;./kangml.sh`
 <br>
+<br>
 谢谢！有缘江湖再见。<br>
